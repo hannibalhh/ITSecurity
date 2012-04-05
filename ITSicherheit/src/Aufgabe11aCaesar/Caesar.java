@@ -49,7 +49,7 @@ public class Caesar {
 		return crypt(c,-key);
 	}
 	
-	private String crypt(){
+	public String crypt(){
 		if (isNaC())
 			return "";
 		String cryptedTex = "";
