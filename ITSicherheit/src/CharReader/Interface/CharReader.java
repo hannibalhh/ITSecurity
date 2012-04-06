@@ -1,4 +1,4 @@
-package CharReader;
+package CharReader.Interface;
 
 public interface CharReader extends Iterable<Character>{
 

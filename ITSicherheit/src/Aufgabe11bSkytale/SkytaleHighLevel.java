@@ -2,23 +2,28 @@ package Aufgabe11bSkytale;
 
 import java.util.*;
 
-import CharReader.CharReader;
+import StringWriter.w;
+
 import CharReader.r;
+import CharReader.Interface.CharReader;
 
 public class SkytaleHighLevel {
 
 	public static void main(String[] args) {
-		System.out.println(ntest());
-//		simpleTest();
+//		System.out.println(ntest());
+		simpleTest();
 	}
 	
-	public static void simpleTest(){
+	public static void simpleTest() {
 		int key = 3;
-		SkytaleHighLevel c = create(r.file("src/Aufgabe11bSkytale/SkytaleTest").toString(), key);
+		SkytaleHighLevel c = create(r.file("src/Aufgabe11bSkytale/SkytaleTest")
+				.toString(), key);
 		String crypt = c.crypt();
-		System.out.println("  crypt: " + crypt);
+		w.file("src/Aufgabe11bSkytale/SkytaleTestHighCrypted").write(crypt);
 		SkytaleHighLevel c1 = create(crypt, key);
-		System.out.println("decrypt: " + c1.decrypt());
+		String decrypt = c1.decrypt();
+		w.file("src/Aufgabe11bSkytale/SkytaleTestHighDecrypted").write(decrypt);
+		System.out.println("Finished.");
 	}
 	
 	public static boolean test(int key){

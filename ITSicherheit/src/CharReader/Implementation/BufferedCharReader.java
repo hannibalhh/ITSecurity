@@ -1,10 +1,12 @@
-package CharReader;
+package CharReader.Implementation;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Iterator;
+
+import CharReader.Interface.CharReader;
 
 public class BufferedCharReader implements CharReader{
 	

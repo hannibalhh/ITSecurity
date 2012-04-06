@@ -1,31 +1,29 @@
 package Aufgabe13;
 
 import StringWriter.w;
-import Aufgabe11aCaesar.Caesar;
-import Aufgabe11bSkytale.SkytaleHighLevel;
+import Aufgabe11bSkytale.SkytaleLowLevel;
 import CharReader.r;
 
 //2x Keys -> HŠufigkeitsverteilung -> Sicherheit? -> Protokollieren
-public class aSkytaleHighLevelLongTest {
+public class aSkytaleLowLevelLongTest {
 
 	public static void main(String args[]){
-//		ntimetest(2);
 		test(99);
 	}
 	
 	public static void test(int key){
 		String phrase = r.file("src/Aufgabe12/kafka-strafkolonie01.txt").toString();
-		SkytaleHighLevel c = SkytaleHighLevel.create(phrase, key);
+		SkytaleLowLevel c = SkytaleLowLevel.create(phrase, key);
 		String crypt = c.crypt();
-		w.file("src/Aufgabe13/SkytaleHighCrypted["+key+"]").write(crypt);
-		SkytaleHighLevel c2 = SkytaleHighLevel.create(crypt, key);
-		String decrypt = c2.decrypt();
-		w.file("src/Aufgabe13/SkytaleHighDecrypted["+key+"]").write(decrypt);
+		w.file("src/Aufgabe13/SkytaleLowCrypted["+key+"]").write(crypt);
+		SkytaleLowLevel c2 = SkytaleLowLevel.create(crypt, key);
+		String decrypt = c2.decrypt();;
+		w.file("src/Aufgabe13/SkytaleLowDecrypted["+key+"]").write(decrypt);
 	}
 	
 	public static long timetest(int key){
-		String phrase = r.file("src/Aufgabe12/kafka-strafkolonie01.txt").toString();
-		SkytaleHighLevel c = SkytaleHighLevel.create(phrase, key);
+		String phrase = r.file("src/Aufgabe12/kafka-strafkolonie01.txt").toString();	
+		SkytaleLowLevel c = SkytaleLowLevel.create(phrase, key);
 		long t = System.currentTimeMillis();
 		c.crypt();
 		return System.currentTimeMillis()-t;
@@ -40,5 +38,5 @@ public class aSkytaleHighLevelLongTest {
 		}
 		System.out.println("average " + timeSum/n);
 	}
-	
+
 }

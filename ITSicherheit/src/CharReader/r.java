@@ -1,5 +1,9 @@
 package CharReader;
 
+import CharReader.Implementation.BufferedCharReader;
+import CharReader.Implementation.EasyCharReader;
+import CharReader.Interface.CharReader;
+
 final public class r {
 
 	public static CharReader file(String path){

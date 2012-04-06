@@ -1,7 +1,8 @@
 package Aufgabe11bSkytale;
 
-import CharReader.CharReader;
+import StringWriter.w;
 import CharReader.r;
+import CharReader.Interface.CharReader;
 
 public class SkytaleLowLevel {
 
@@ -16,9 +17,11 @@ public class SkytaleLowLevel {
 		SkytaleLowLevel c = create(r.file("src/Aufgabe11bSkytale/SkytaleTest")
 				.toString(), key);
 		String crypt = c.crypt();
-		System.out.println("  crypt: " + crypt);
+		w.file("src/Aufgabe11bSkytale/SkytaleTestLowCrypted").write(crypt);
 		SkytaleLowLevel c1 = create(crypt, key);
-		System.out.println("decrypt: " + c1.decrypt());
+		String decrypt = c1.decrypt();
+		w.file("src/Aufgabe11bSkytale/SkytaleTestLowDecrypted").write(decrypt);
+		System.out.println("Finished.");
 	}
 
 	public static boolean test(int key) {

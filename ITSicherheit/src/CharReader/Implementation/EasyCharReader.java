@@ -1,6 +1,8 @@
-package CharReader;
+package CharReader.Implementation;
 
 import java.util.Iterator;
+
+import CharReader.Interface.CharReader;
 
 public class EasyCharReader implements CharReader{
 		
