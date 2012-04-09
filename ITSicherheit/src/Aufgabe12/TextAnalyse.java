@@ -9,6 +9,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
+import StringWriter.Persistence;
+import StringWriter.Interface.FileSystem;
+
 
 public class TextAnalyse {
 
@@ -48,37 +51,43 @@ public class TextAnalyse {
 	
 	
 	/**
-	 * @param path to file
+	 * @param input,output
 	 * 
 	 */
 	public static void main(String[] args) {
-		List<TextAnalyse> list=new LinkedList<TextAnalyse>();
+	
 
+		String output=args[1];
 		try {
-			for(int i=0; i<args.length; i++){
+			
 				TextAnalyse textAna;
 
-				textAna = new TextAnalyse(args[i]);
-
-				list.add(textAna);
-			}
+				textAna = new TextAnalyse(args[0]);
+				
+				FileSystem f=Persistence.file(output);
+				
+				f.concatLine("Buchstabenhaeufigkeiten im Text");
+				
+				f.concatLine(textAna.toString());
+				TreeMap<Character, Integer> sorted=textAna.sortedByNumber();
+				
+			
+				f.concatLine("Amount of Chars: "+textAna.allChars);
+				
+				f.concatLine("char\ttotal\tpercent");
+				for(Entry<Character,Integer> e:sorted.entrySet()){
+					f.concatLine(e.getKey() + "\t"+e.getValue()+"\t"+textAna.percent.get(e.getKey()));
+			
+				}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 
-		for(TextAnalyse textAna:list){
-			System.out.println("Buchstabenhaeufigkeiten im Text");
-			System.out.println(textAna.toString());
-			TreeMap<Character, Integer> sorted=textAna.sortedByNumber();
-			System.out.println("Amount of Chars: "+textAna.allChars);
-			System.out.println("char\ttotal\tpercent");
-			for(Entry<Character,Integer> e:sorted.entrySet()){
-				System.out.println(e.getKey() + "\t"+e.getValue()+"\t"+textAna.percent.get(e.getKey()));
-			}
+			
 
-		}
+		
 
 
 
@@ -88,10 +97,10 @@ public class TextAnalyse {
 
 	//putting chars into treemap
 	void process(String string){
-		String str=string.toLowerCase();
+		//String str=string.toLowerCase();
 
-		for(char c:str.toCharArray()){
-			if(Character.isLetter(c) ){
+		for(char c:string.toCharArray()){
+		//	if(Character.isLetter(c) ){
 
 				if(chars.containsKey(c)){
 					int amount=chars.get(c);	
@@ -102,7 +111,7 @@ public class TextAnalyse {
 					chars.put(c, 1);
 				}
 
-			}
+		//	}
 		}
 	}
 
