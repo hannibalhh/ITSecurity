@@ -10,7 +10,7 @@ public class aSkytaleHighLevelLongTest {
 
 	public static void main(String args[]){
 //		ntimetest(2);
-		test(99);
+		test(78);
 	}
 	
 	public static void test(int key){

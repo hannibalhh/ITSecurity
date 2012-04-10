@@ -6,7 +6,7 @@ import CharReader.Interface.CharReader;
 public class Test {
 
 	public static void main(String args[]){
-		string();
+		file();
 	}
 	
 	public static void file(){

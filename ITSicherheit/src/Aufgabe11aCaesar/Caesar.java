@@ -20,21 +20,6 @@ public class Caesar {
 		System.out.println("Finished.");
 	}
 
-	public static void writest() {
-		{
-			try {
-				// Create file
-				FileWriter fstream = new FileWriter("out.txt");
-				BufferedWriter out = new BufferedWriter(fstream);
-				out.write("Hello Java");
-				// Close the output stream
-				out.close();
-			} catch (Exception e) {// Catch exception if any
-				System.err.println("Error: " + e.getMessage());
-			}
-		}
-	}
-
 	final private String s;
 	final private int key;
 	public static final Caesar NaC = new Caesar(null, Integer.MIN_VALUE);

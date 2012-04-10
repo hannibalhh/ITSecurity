@@ -8,7 +8,7 @@ import CharReader.r;
 public class aSkytaleLowLevelLongTest {
 
 	public static void main(String args[]){
-		test(99);
+		test(78);
 	}
 	
 	public static void test(int key){

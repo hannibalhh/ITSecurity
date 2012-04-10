@@ -57,7 +57,7 @@ public class BufferedCharReader implements CharReader{
 			return '0';
 		}
 		try {
-			return (char)s.read();
+			return (char)((int)s.read() % 255);
 		} catch (IOException e) {
 			System.err.println("You read out of BufferedReader");
 			return '0';
