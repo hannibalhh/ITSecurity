@@ -8,12 +8,12 @@ public class SkytaleLowLevel {
 
 	public static void main(String[] args) {
 
-		System.out.println(ntest());
-//		simpleTest();
+//		System.out.println(ntest());
+		simpleTest();
 	}
 
 	public static void simpleTest() {
-		int key = 3;
+		int key = 5;
 		SkytaleLowLevel c = create(r.file("src/Aufgabe11bSkytale/SkytaleTest")
 				.toString(), key);
 		String crypt = c.crypt();
@@ -75,7 +75,7 @@ public class SkytaleLowLevel {
 	}
 
 	private String flatten(char matrix[][]) {
-//		print(matrix);
+		print(matrix);
 		String s = "";
 		for (char[] m : matrix) {
 			for (Character c : m) {

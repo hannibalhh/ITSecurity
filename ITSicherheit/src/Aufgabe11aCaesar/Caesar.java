@@ -10,7 +10,7 @@ public class Caesar {
 
 	public static void main(String[] args) {
 //		writest();
-		int key = 2;
+		int key = 4;
 		Caesar c = create(r.file("src/Aufgabe11aCaesar/CaesarTest").toString(),key);
 		String crypt = c.crypt();
 		w.file("src/Aufgabe11aCaesar/CaesarTestCrypted").write(crypt);
@@ -47,7 +47,8 @@ public class Caesar {
 
 	private char crypt(char c, int key) {
 		int i = (int) c;
-		return (char) (i + key);
+		System.out.println("crypt: " + Math.abs(((i + key) % 255))+ " " + (char) Math.abs(((i + key) % 255)));
+		return (char) (((i + key) % 255));
 	}
 
 	private char decrypt(char c, int key) {

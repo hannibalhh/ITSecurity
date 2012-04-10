@@ -2,8 +2,12 @@ package StringWriter.Implementation;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 
 import StringWriter.Interface.FileSystem;
 
@@ -32,9 +36,11 @@ public class MyFileSystem implements FileSystem {
 			if (!f.isFile()) {
 				System.out.println("Keine Datei " + path);
 				return NaFS;
-			}
-			FileWriter fstream = new FileWriter(path);
-			BufferedWriter out = new BufferedWriter(fstream);
+			}			
+			OutputStream fis = new FileOutputStream(path);
+	        Writer isr = new OutputStreamWriter(fis, "8859_1");
+	        
+			BufferedWriter out = new BufferedWriter(isr);
 			return new MyFileSystem(out, path);
 		} catch (Exception e) {
 			System.out.println("Exception " + e.getMessage());

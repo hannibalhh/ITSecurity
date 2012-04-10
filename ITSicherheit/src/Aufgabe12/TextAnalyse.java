@@ -1,7 +1,11 @@
 package Aufgabe12;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,11 +20,11 @@ import StringWriter.Interface.FileSystem;
 public class TextAnalyse {
 
 	TreeMap<Character, Integer> chars=new TreeMap<Character, Integer>();
-	FileReader fis;
+	FileInputStream fis;
 	BufferedReader in;
 	String title;
 	
-	TreeMap<Character, Double> percent=null;
+	TreeMap<Character, Float> percent=null;
 	
 	private int allChars;
 	
@@ -28,8 +32,9 @@ public class TextAnalyse {
 
 	TextAnalyse(String path) throws Exception{
 		title=path;
-		fis = new FileReader(path);
-		in=new BufferedReader(fis);
+		InputStream fis = new FileInputStream(path);
+        Reader isr = new InputStreamReader(fis, "8859_1");
+        in=new BufferedReader(isr);
 		String str;
 		while ((str = in.readLine()) != null) {
 			this.process(str);
@@ -41,9 +46,9 @@ public class TextAnalyse {
 
 
 	void initPercentMap(){
-		this.percent=new TreeMap<Character, Double>();
+		this.percent=new TreeMap<Character, Float>();
 		for(Entry<Character,Integer> e: chars.entrySet()){
-			percent.put(e.getKey(), (double) e.getValue()/(allChars) );
+			percent.put(e.getKey(), (float) e.getValue()/(allChars) );
 		}
 		
 		
