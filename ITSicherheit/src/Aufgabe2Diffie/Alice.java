@@ -51,8 +51,8 @@ public class Alice {
 
 	@Override
 	public String toString() {
-		return "Alice(x=" + x + ", Kab=" + Kab + ", n=" + n() + ", g="
-				+ g() + ")";
+		return "Alice(n=" + n() + ", g="
+				+ g() + ", x=" + x + ", Kab=" + Kab + ")";
 	}
 	
 }

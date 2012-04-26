@@ -53,7 +53,8 @@ public class Bob {
 
 	@Override
 	public String toString() {
-		return "Bob(n=" + n + ", g=" + g + ", y=" + y + ", Kab=" + Kab + ")";
+		return "Bob  (n=" + n() + ", g="
+				+ g() + ", y=" + y + ", Kab=" + Kab + ")";
 	}
 	
 	

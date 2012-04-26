@@ -13,6 +13,6 @@ public class BigPrimeN {
 	
 	// 1024Bit 
 	BigInteger next(){
-		return BigInteger.probablePrime(10, new Random());
+		return BigInteger.probablePrime(100, new Random());
 	}
 }

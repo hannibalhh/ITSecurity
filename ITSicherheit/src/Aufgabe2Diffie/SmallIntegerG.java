@@ -23,7 +23,7 @@ public class SmallIntegerG {
 	public BigInteger rand(BigInteger up,BigInteger to) {
 		to = to.subtract(BigInteger.valueOf(2));
 	    Random rand = new Random();
-	    BigInteger result = new BigInteger(n.intValue(), rand);
+	    BigInteger result = new BigInteger(n.intValue()/100, rand);
 	   
 	    result = result.mod(to);
 	    result = result.add(BigInteger.valueOf(2));
