@@ -42,19 +42,15 @@ public class Bob {
 		this.g = g;
 	}
 	
-	public void sendGxMODn(BigInteger GxMODn){
+	public BigInteger GyMODn(BigInteger GxMODn){
 		// Kab = (g hoch xy) mod n berechnen
 		Kab = GxMODn.modPow(y, n);
+		return g.modPow(y, n);
 	}
 	
-	public void reply(Alice alice){
-		alice.sendGyMODn(g.modPow(y, n));
-	}
-
 	@Override
 	public String toString() {
-		return "Bob  (n=" + n() + ", g="
-				+ g() + ", y=" + y + ", Kab=" + Kab + ")";
+		return "Bob  (n=" + n() + ", g=" + g() + ", y=" + y + ", Kab=" + Kab + ")";
 	}
 	
 	public boolean isBundledWith(Alice alice){
