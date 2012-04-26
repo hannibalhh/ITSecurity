@@ -7,7 +7,7 @@ public class Alice {
 	private static final BigPrimeN genN = BigPrimeN.create();
 	private static final BigInteger n = genN.next();
 	
-	private static final SmallIntegerG genG = SmallIntegerG.create(n);
+	private static final SmallInteger genG = SmallInteger.create(n);
 	private static final BigInteger g = genG.next();
 	
 	private final BigInteger x;
@@ -53,6 +53,10 @@ public class Alice {
 	public String toString() {
 		return "Alice(n=" + n() + ", g="
 				+ g() + ", x=" + x + ", Kab=" + Kab + ")";
+	}
+	
+	public boolean isBundledWith(Bob bob){
+		return this.Kab().equals(bob.Kab());
 	}
 	
 }

@@ -5,14 +5,25 @@ import java.util.Random;
 
 public class BigPrimeN {
 
-	private BigPrimeN(){}
-	
-	public static BigPrimeN create(){
-		return new BigPrimeN();
+	private static final int standardBitLength = 1024;
+	private final int bitLength;
+
+	private BigPrimeN(int bitLength){
+		this.bitLength = bitLength;
 	}
 	
-	// 1024Bit 
+	public static BigPrimeN create(int bitLength){
+		return new BigPrimeN(bitLength);
+	}
+	public static BigPrimeN create(){
+		return new BigPrimeN(standardBitLength);
+	}
+	
+	public int bitLength(){
+		return bitLength;
+	}
+	
 	BigInteger next(){
-		return BigInteger.probablePrime(100, new Random());
+		return BigInteger.probablePrime(bitLength, new Random());
 	}
 }

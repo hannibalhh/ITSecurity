@@ -57,5 +57,9 @@ public class Bob {
 				+ g() + ", y=" + y + ", Kab=" + Kab + ")";
 	}
 	
+	public boolean isBundledWith(Alice alice){
+		return this.Kab().equals(alice.Kab());
+	}
+	
 	
 }
