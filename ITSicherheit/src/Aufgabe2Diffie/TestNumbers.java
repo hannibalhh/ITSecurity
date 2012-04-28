@@ -5,7 +5,9 @@ import java.math.BigInteger;
 public class TestNumbers {
 
 	public static void main(String[] args) {
-		generateN();
+		//generateN();
+		BigInteger biggi=MathUtil.squareAndMultiply(BigInteger.valueOf(2),BigInteger.valueOf(26) );
+		System.out.println(biggi);
 	}
 
 	public static void generateG(){
