@@ -17,7 +17,7 @@ public class TestModPow {
 	public static void modPowTestEasy(){
 		BigInteger base = BigInteger.valueOf(2);
 	    BigInteger exp = BigInteger.valueOf(7);
-		BigInteger mod = BigInteger.valueOf(5);
+		BigInteger mod = BigInteger.valueOf(5) ;
 		System.out.println("standardimpl: " + base.modPow(exp, mod));
 		squareAndMultiplyMod(base,exp,mod);			
 	}
