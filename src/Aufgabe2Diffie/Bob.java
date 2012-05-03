@@ -1,8 +1,6 @@
 package Aufgabe2Diffie;
 
 import java.math.BigInteger;
-import static Aufgabe2Diffie.MathUtil.modPow;
-
 
 public class Bob {
 
@@ -46,8 +44,7 @@ public class Bob {
 	
 	public BigInteger GyMODn(BigInteger GxMODn){
 		// Kab = (g hoch xy) mod n berechnen
-//		Kab = GxMODn.modPow(y, n);
-		Kab = modPow(GxMODn,y, n);
+		Kab = GxMODn.modPow(y, n);
 		return g.modPow(y, n);
 	}
 	

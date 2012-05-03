@@ -1,8 +1,6 @@
 package Aufgabe2Diffie;
 
 import java.math.BigInteger;
-import static Aufgabe2Diffie.MathUtil.modPow;
-
 
 public class Alice {
 
@@ -25,8 +23,7 @@ public class Alice {
 
 	public void YyxMODn(BigInteger GyMODn) {
 		// Kab berechnen mit (y hoch yx) mod n
-//		Kab = GyMODn.modPow(x, n);
-		Kab = modPow(GyMODn,x, n);
+		Kab = GyMODn.modPow(x, n);
 	}
 
 	public BigInteger n() {
