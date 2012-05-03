@@ -1,7 +1,10 @@
 package Aufgabe2Diffie;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.LinkedList;
+import java.util.List;
 
 public class MathUtil {
 
@@ -10,27 +13,34 @@ public class MathUtil {
 	public static BigInteger squareAndMultiply(BigInteger base, BigInteger exp){
 		int bitCounter=0;
 		byte[] bytearray=exp.toByteArray();
-		BigInteger result=base;
 		
-		for(byte b:bytearray){						
-			for(int i=0;i<8;i++){
-				if(bitCounter>=exp.bitLength()-1){
-					return result;
-				}else{
-					bitCounter++;
-				}
-				result=result.pow(2);
+		BigInteger result=BigInteger.valueOf(1);
+		
+		
+		//
+		for(byte b:bytearray){		
+			ArrayList<Boolean> blubb=new ArrayList<Boolean>();
+			
+			//change the order of the bits from the specific byte
+			for(int j=0;j<8;j++){
+				if(exp.bitLength()<=j)break;
+			
+				boolean h=(b & (1 << j)) > 0;
+					blubb.add(0, h);
+			}
+			
+			for(int i=0;i<blubb.size();i++){
 				
-				//eine 1 zu der ŸberprŸfenden stelle shiften -> bitweise und --> wenn die herrauskommende zahl groesser 0, 
-				//dann wars eine 1 an der i-ten stelle
-				boolean h=(b & (1 << i)) > 0;			
-//				System.out.println("h: "+h);
-				if (h)  
+				result=result.pow(2);
+
+				//bits ueberpruefen ob es 1 war
+				if (blubb.get(i))  
 			    {  
 					result=result.multiply(base);
-			    }  		
-//				System.out.println("actual result:"+result.toString());
-				
+			    } 				
+				bitCounter++;
+				if(bitCounter>=exp.bitLength())return result;
+
 			}
 		}
 		return result;
@@ -42,4 +52,6 @@ public class MathUtil {
 		else // standard implementation (delegation)
 			return base.modPow(exp, m);
 	}
+
+	
 }
