@@ -13,28 +13,36 @@ public class MathUtil {
 	public static BigInteger squareAndMultiply(BigInteger base, BigInteger exp){
 		int bitCounter=0;
 		byte[] bytearray=exp.toByteArray();
+
 		BigInteger result=BigInteger.valueOf(1);
-		for(byte b:bytearray){		
-			ArrayList<Boolean> blubb=new ArrayList<Boolean>();
-			
-			//change the order of the bits from the specific byte
+		
+		ArrayList<Boolean> blubb=new ArrayList<Boolean>();
+		
+		for(int i=bytearray.length-1;i>=0;i--){
+
+			//bring bits in better iterable shape ;)
 			for(int j=0;j<8;j++){
 				if(exp.bitLength()<=j)
 					break;
-				boolean h=(b & (1 << j)) > 0;
+
+				boolean h=(bytearray[i] & (1 << j)) >0 ;
 				blubb.add(0, h);
 			}
 			
-			for(int i=0;i<blubb.size();i++){			
-				result=result.pow(2);
-				//bits ueberpruefen ob es 1 war
-				if (blubb.get(i)) 
-					result=result.multiply(base); 				
-				bitCounter++;
-				if(bitCounter>=exp.bitLength())
-					return result;
-			}
 		}
+
+		while(!blubb.get(0)){
+			
+			blubb.remove(0);
+		}
+		//System.out.println("blubb: "+blubb);
+		
+		for(boolean b:blubb){
+			result=result.pow(2);
+			
+			if(b)result=result.multiply(base); 	
+		}
+		
 		return result;
 	}
 	

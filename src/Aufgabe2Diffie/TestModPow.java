@@ -10,7 +10,7 @@ public class TestModPow {
 
 	public static void squareAndMultiplayDemonstrate(){
 		BigInteger base=BigInteger.valueOf(2);
-		for(int i=1; i<=200; i++){
+		for(int i=1; i<=3000; i++){
 			BigInteger exp=BigInteger.valueOf(i);
 			BigInteger biggi = MathUtil.squareAndMultiply(base ,exp);
 			System.out.print("2 ^ "+i+"="+biggi);
