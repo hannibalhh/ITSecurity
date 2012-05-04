@@ -5,23 +5,23 @@ import java.math.BigInteger;
 public class TestModPow {
 
 	public static void main(String[] args) {
-		// generateN();
-		modPowTest();
+		squareAndMultiplayDemonstrate();
 	}
-
-
 
 	public static void squareAndMultiplayDemonstrate(){
 		BigInteger base=BigInteger.valueOf(2);
-		//
-		for(int i=1; i<=23; i++){
-		BigInteger exp=BigInteger.valueOf(i);
-		BigInteger biggi = MathUtil.squareAndMultiply(base ,exp);
-		System.out.println("2 ^ "+i+"="+biggi);
+		for(int i=1; i<=200; i++){
+			BigInteger exp=BigInteger.valueOf(i);
+			BigInteger biggi = MathUtil.squareAndMultiply(base ,exp);
+			System.out.print("2 ^ "+i+"="+biggi);
+			if (biggi.equals(base.pow(exp.intValue())))
+				System.out.println(" is correct");
+			else{
+				System.err.println(" not Correct");
+				return;
+			}
 		}
-	}
-
-	
+	}	
 
 	public static void squareAndMultiplyMod(BigInteger base, BigInteger exp,BigInteger mod) {
 		BigInteger biggi = MathUtil.squareAndMultiply(base,exp).mod(mod);
@@ -37,9 +37,9 @@ public class TestModPow {
 	}
 	
 	public static void modPowTest(){
-		BigInteger base = BigInteger.valueOf(2);
-	    BigInteger exp = BigInteger.valueOf(7);
-		BigInteger mod = BigInteger.valueOf(5);
+		BigInteger base = BigInteger.valueOf(3);
+	    BigInteger exp = BigInteger.valueOf(12);
+		BigInteger mod = BigInteger.valueOf(25);
 		System.out.println("standardimpl: " + base.modPow(exp, mod));
 		System.out.println(MathUtil.modPow(base, exp, mod));		
 	}

@@ -5,7 +5,7 @@ import java.math.BigInteger;
 public class TestNumbers {
 
 	public static void main(String[] args) {
-		// generateN();
+		 generateN();
 	}
 
 	public static void generateG() {
