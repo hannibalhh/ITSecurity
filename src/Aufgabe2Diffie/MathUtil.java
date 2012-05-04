@@ -2,16 +2,12 @@ package Aufgabe2Diffie;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.LinkedList;
-import java.util.List;
 
 public class MathUtil {
 
 	public static final boolean squareAndMultiply = false;
 	
 	public static BigInteger squareAndMultiply(BigInteger base, BigInteger exp){
-		int bitCounter=0;
 		byte[] bytearray=exp.toByteArray();
 
 		BigInteger result=BigInteger.valueOf(1);
@@ -31,16 +27,14 @@ public class MathUtil {
 			
 		}
 
-		while(!blubb.get(0)){
-			
+		while(!blubb.get(0)){			
 			blubb.remove(0);
 		}
-		//System.out.println("blubb: "+blubb);
 		
 		for(boolean b:blubb){
 			result=result.pow(2);
-			
-			if(b)result=result.multiply(base); 	
+			if(b)
+				result=result.multiply(base); 	
 		}
 		
 		return result;

@@ -7,13 +7,17 @@ public class Test {
 	static long fastest = Long.MAX_VALUE;
 	
 	public static void main(String args[]){
+		bigTest();
+	}
+	
+	public static void bigTest(){
 		for (int i = 0;i<10;i++)
 			test(100,1024);
 		s();
 	}
 	
 	public static boolean test(int n, int bitLength){
-		SmallInteger si = SmallInteger.create(BigPrimeN.create(bitLength).next());
+		SmallInteger si = SmallInteger.create(BigPrimeN.create(bitLength).next().mod(BigInteger.valueOf(200)));
 		System.out.print("Test is running... ");
 		long start = System.currentTimeMillis();
 		for (int i = 0;i<n;i++){
@@ -40,7 +44,7 @@ public class Test {
 			return true;
 	}
 	
-	public static void test(){
+	public static void simpleTest(){
 		Alice alice = Alice.create(BigInteger.valueOf(2));
 		Bob bob = Bob.create(BigInteger.valueOf(4));
 		alice.init(bob);
