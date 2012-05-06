@@ -26,7 +26,8 @@ public class Alice {
 	public void YyxMODn(BigInteger GyMODn) {
 		// Kab berechnen mit (y hoch yx) mod n
 //		Kab = GyMODn.modPow(x, n);
-		Kab = modPow(GyMODn,x, n);
+//		Kab = modPow(GyMODn,x, n);
+		Kab = MathUtil.squareAndMultiplyMod(GyMODn, x, n);
 	}
 
 	public BigInteger n() {
