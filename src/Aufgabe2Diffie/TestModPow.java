@@ -5,9 +5,25 @@ import java.math.BigInteger;
 public class TestModPow {
 
 	public static void main(String[] args) {
-		squareAndMultiplayDemonstrate();
+		squareAndMultiplayModDemonstrate();
 	}
 
+	public static void squareAndMultiplayModDemonstrate(){
+		BigInteger base=BigInteger.valueOf(2);
+		for(int i=1; i<=3000; i++){
+			BigInteger exp=BigInteger.valueOf(i);
+			BigInteger biggi = MathUtil.squareAndMultiplyMod(base ,exp, BigInteger.valueOf(23));
+			System.out.print("2 ^ "+i+"="+biggi);
+
+			if (biggi.equals(base.modPow(exp,BigInteger.valueOf(23))))
+				System.out.println(" is correct");
+			else{
+				System.err.println(" not Correct");
+				return;
+			}
+		}
+	}
+	
 	public static void squareAndMultiplayDemonstrate(){
 		BigInteger base=BigInteger.valueOf(2);
 		for(int i=1; i<=3000; i++){
@@ -25,7 +41,9 @@ public class TestModPow {
 
 	public static void squareAndMultiplyMod(BigInteger base, BigInteger exp,BigInteger mod) {
 		BigInteger biggi = MathUtil.squareAndMultiply(base,exp).mod(mod);
-		System.out.println(biggi);
+		BigInteger biggiMe = MathUtil.squareAndMultiplyMod(base, exp, mod);
+		boolean same=biggi.equals(biggiMe);
+		System.out.println(base + "^" + exp+ "mod "+mod +" = "+ biggi +" is the same: "+same );
 	}
 
 	public static void modPowTestEasy(){
