@@ -5,7 +5,10 @@ import java.util.ArrayList;
 
 public class MathUtil {
 
-	public static final boolean squareAndMultiply = false;
+	public static boolean squareAndMultiply = true;
+	public static void setSquareAndMultiply(boolean b){
+		squareAndMultiply = b;
+	}
 	
 	public static BigInteger squareAndMultiply(BigInteger base, BigInteger exp){
 		byte[] bytearray=exp.toByteArray();
@@ -77,9 +80,17 @@ public class MathUtil {
 	
 	
 	public static BigInteger modPow(BigInteger base,BigInteger exp, BigInteger m){
+		BigInteger biggi = null;
+		long t = System.currentTimeMillis();
 		if (squareAndMultiply)
-			return squareAndMultiply(base,exp).mod(m);
+			biggi = squareAndMultiplyMod(base,exp,m);
 		else // standard implementation (delegation)
-			return base.modPow(exp, m);
+			biggi = base.modPow(exp, m);
+		long t2 = System.currentTimeMillis();
+		if (squareAndMultiply)
+			System.out.println("squareAndMultiply: " + (t2-t));
+		else
+			System.out.println("modPow: " + (t2-t));
+		return biggi;
 	}	
 }

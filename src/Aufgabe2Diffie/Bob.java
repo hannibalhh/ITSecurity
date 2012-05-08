@@ -46,9 +46,11 @@ public class Bob {
 	
 	public BigInteger GyMODn(BigInteger GxMODn){
 		// Kab = (g hoch xy) mod n berechnen
-//		Kab = GxMODn.modPow(y, n);
+		// Kab = GxMODn.modPow(y, n);
 		Kab = modPow(GxMODn,y, n);
-		return g.modPow(y, n);
+		BigInteger i = g.modPow(y, n);
+		System.out.println("bob sendet g y mod n" + i );
+		return i;
 	}
 	
 	@Override

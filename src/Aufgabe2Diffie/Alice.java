@@ -3,7 +3,6 @@ package Aufgabe2Diffie;
 import java.math.BigInteger;
 import static Aufgabe2Diffie.MathUtil.modPow;
 
-
 public class Alice {
 
 	private static final BigPrimeN genN = BigPrimeN.create();
@@ -25,9 +24,8 @@ public class Alice {
 
 	public void YyxMODn(BigInteger GyMODn) {
 		// Kab berechnen mit (y hoch yx) mod n
-//		Kab = GyMODn.modPow(x, n);
-//		Kab = modPow(GyMODn,x, n);
-		Kab = MathUtil.squareAndMultiplyMod(GyMODn, x, n);
+		// Kab = GyMODn.modPow(x, n);
+		Kab = modPow(GyMODn,x, n);
 	}
 
 	public BigInteger n() {
@@ -49,7 +47,9 @@ public class Alice {
 	public void init(Bob bob) {
 		bob.sendG(g);
 		bob.sendN(n);
-		YyxMODn(bob.GyMODn(g.modPow(x, n)));
+		BigInteger i = g.modPow(x, n);
+		System.out.println("alice sendet g x mod n" + i );
+		YyxMODn(bob.GyMODn(i));
 	}
 
 	@Override
