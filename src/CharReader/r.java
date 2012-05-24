@@ -13,4 +13,8 @@ final public class r {
 	public static CharReader string(String str){
 		return EasyCharReader.create(str);
 	}
+	
+	public static byte[] fileToByteArray(String path){
+		return BufferedCharReader.create(path).toString().getBytes();
+	}
 }
