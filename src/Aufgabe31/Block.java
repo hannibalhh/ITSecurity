@@ -34,6 +34,9 @@ public class Block {
 			temp[i] = b;
 			i++;
 		}
+		if (i > 0){
+			l.add(Block.fillKey(temp));
+		}
 		return l;
 	}
 	

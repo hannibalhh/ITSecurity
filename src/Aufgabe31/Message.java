@@ -10,31 +10,39 @@ public class Message {
 
 	private final Block m;
 	private final byte[] clearm;
-	private final BigInteger k;
+	private final Block k;
 
-	private Message(Block m, byte[] clearm, BigInteger k) {
+	private Message(Block m, byte[] clearm, Block k) {
 		this.m = m;
 		this.clearm = clearm;
 		this.k = k;
 	}
 
 	public static Message create(byte[] clearm, BigInteger k) {
-		return new Message(mac(clearm, k), clearm, k);
+		Block filledk = Block.fillKey(k.toString().getBytes());
+		return new Message(mac(clearm, filledk), clearm, filledk);
+	}
+	public static Message create(byte[] clearm, String k) {
+		Block filledk = Block.fillKey(k.getBytes());
+		return new Message(mac(clearm, filledk), clearm, filledk);
 	}
 
-	public static Block mac(byte[] clearm, BigInteger key) {
-		Block filledk = Block.fillKey(key.toString().getBytes());
+	public static Block mac(byte[] clearm, Block filledk) {
 		List<Block> blocks = new ArrayList<Block>();
 		blocks.add(filledk);
 		blocks.addAll(Block.buildBlocks(clearm));
+		System.out.println("Blocks with key: " + blocks);
 		Iterator<Block> i = blocks.iterator();
 		Block a = i.next();
 		Block b = null;
+		int rounds = 0;
 		while (i.hasNext()) {
 			b = a;
 			a = i.next();
-			a = a.hash(b);		
+			a = a.hash(b);	
+			rounds++;
 		}
+		System.out.println("MAC rounds: " + rounds);
 		return a;
 	}
 
@@ -46,7 +54,7 @@ public class Message {
 		return clearm;
 	}
 
-	public BigInteger k() {
+	public Block k() {
 		return k;
 	}
 
