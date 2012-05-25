@@ -1,4 +1,4 @@
-package Aufgabe31;
+package Aufgabe31.Byte;
 
 import java.math.BigInteger;
 
@@ -10,6 +10,7 @@ public class Bf {
 	String foundKey;
 	byte[] clearm;
 	long lastDurationMS=0;
+	
 	public Bf(int leading0s, Block mac, byte[] clearm ){
 		this.leading0s=leading0s;
 		this.mac=mac;
@@ -17,19 +18,17 @@ public class Bf {
 		this.foundKey= findKey();
 	}
 	
-	public BigInteger amountPossibleKeysWithN0s(){
-		
+	public BigInteger amountPossibleKeysWithN0s(){	
 		BigInteger biggi= BigInteger.valueOf(2);
-		return biggi.pow((mac.length()*8)-leading0s);
+		return biggi.pow((Block.length()*8)-leading0s);
 	}
 	
 	public BigInteger amountPossibleKeysAbsolute(){
 		BigInteger biggi= BigInteger.valueOf(2);
-		return biggi.pow((mac.length()*8));
+		return biggi.pow((Block.length()*8));
 	}
 	
-	public String findKey(){
-		
+	public String findKey(){		
 		long start = System.currentTimeMillis();
 		searchedKeys=0;
 		BigInteger maxRounds=amountPossibleKeysAbsolute();
@@ -38,14 +37,11 @@ public class Bf {
 			Message mess=Message.create(this.clearm,i);
 			if(mess.m().equals(mac)){
 				this.lastDurationMS = System.currentTimeMillis()-start;
-				return Integer.toHexString(i.intValue());
-
-				
+				return Integer.toHexString(i.intValue());			
 			}
 			else searchedKeys++;
 		}
 		this.lastDurationMS = System.currentTimeMillis()-start;
 		return "nothing found";
-	}
-	
+	}	
 }

@@ -1,19 +1,21 @@
-package Aufgabe31;
+package Aufgabe31.CharBuffer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import CharReader.Interface.CharReader;
+
 public class Block {
 
-	private final byte[] b;
-	private static int blockLength = 16; // byte
+	private final char[] b;
+	private static int blockLength = 16; // char
 	
-	private Block(byte[] b){
+	private Block(char[] b){
 		this.b = b;
 	}
 	
-	public static Block create(byte[] b){
+	public static Block create(char[] b){
 		if (b.length != blockLength){
 			System.err.println("Block has wrong size, it must be a length of " + blockLength);
 			return null;
@@ -21,15 +23,15 @@ public class Block {
 		return new Block(b);
 	}
 	
-	public static List<Block> buildBlocks(byte[] blocks){
+	public static List<Block> buildBlocks(CharReader blocks){
 		List<Block> l = new ArrayList<Block>();
-		byte[] temp = new byte[blockLength];
+		char[] temp = new char[blockLength];
 		int i = 0;
-		for(byte b: blocks){
+		for(char b: blocks){
 			if(i == blockLength){
 				i = 0;
 				l.add(Block.create(temp));
-				temp = new byte[blockLength];
+				temp = new char[blockLength];
 			}
 			temp[i] = b;
 			i++;
@@ -40,9 +42,9 @@ public class Block {
 		return l;
 	}
 	
-	public static Block fillKey(byte[] k){
+	public static Block fillKey(char[] k){
 		if (k.length < blockLength){
-			byte[] array = new byte[blockLength];
+			char[] array = new char[blockLength];
 			for(int i = 0;i < blockLength;i++){
 				if (i < k.length){
 					array[i] = k[i];
@@ -62,23 +64,23 @@ public class Block {
 		}
 	}
 	
-	public static byte intToByte(int value) {
-	    return (byte)value;
+	public static char intToChar(int value) {
+	    return (char)value;
 	}
 	
 	public Block hash(Block b){
 		return create(hash(this.value(),b.value()));
 	}
 	
-	private byte[] hash(byte[] a, byte[] b){
-		byte[] r = new byte[a.length];
+	private char[] hash(char[] a, char[] b){
+		char[] r = new char[a.length];
 		for (int i=0;i<a.length;i++){
-			r[i] = intToByte(a[i] ^ b[i]);
+			r[i] = intToChar(a[i] ^ b[i]);
 		}
 		return r;
 	}
 	
-	public byte[] value(){
+	public char[] value(){
 		return b;
 	}
 	
@@ -91,9 +93,9 @@ public class Block {
 		return "Block(b=" + print(b) + ")";
 	}
 	
-	public static String print(byte[] array) {
+	public static String print(char[] array) {
 		String s = "";
-		for (byte b : array) {
+		for (char b : array) {
 			s += (char) b;
 		}
 		return s;

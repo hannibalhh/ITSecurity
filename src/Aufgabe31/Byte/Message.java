@@ -1,4 +1,4 @@
-package Aufgabe31;
+package Aufgabe31.Byte;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
