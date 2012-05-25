@@ -45,6 +45,8 @@ public class Message {
 		System.out.println("MAC rounds: " + rounds);
 		return a;
 	}
+	
+	
 
 	public Block m() {
 		return m;
