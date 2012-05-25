@@ -2,7 +2,6 @@ package Aufgabe31.CharBuffer;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 

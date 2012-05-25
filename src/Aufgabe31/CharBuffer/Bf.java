@@ -1,7 +1,6 @@
 package Aufgabe31.CharBuffer;
 
 import java.math.BigInteger;
-
 import CharReader.Interface.CharReader;
 
 public class Bf {
