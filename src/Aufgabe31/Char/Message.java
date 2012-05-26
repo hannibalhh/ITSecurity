@@ -8,12 +8,12 @@ import java.util.List;
 
 public class Message {
 
-	private final Block m;
+	private final Block mac;
 	private final char[] clearm;
 	private final Block k;
 
 	private Message(Block m, char[] clearm, Block k) {
-		this.m = m;
+		this.mac = m;
 		this.clearm = clearm;
 		this.k = k;
 	}
@@ -48,8 +48,8 @@ public class Message {
 	
 	
 
-	public Block m() {
-		return m;
+	public Block mac() {
+		return mac;
 	}
 
 	public char[] clearm() {
@@ -66,7 +66,7 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message(m=" + m + ", clearm=" + Block.print(clearm) + ", k=" + k + ")";
+		return "Message(m=" + mac + ", clearm=" + Block.print(clearm) + ", k=" + k + ")";
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class Message {
 		int result = 1;
 		result = prime * result + Arrays.hashCode(clearm);
 		result = prime * result + ((k == null) ? 0 : k.hashCode());
-		result = prime * result + ((m == null) ? 0 : m.hashCode());
+		result = prime * result + ((mac == null) ? 0 : mac.hashCode());
 		return result;
 	}
 
@@ -95,10 +95,10 @@ public class Message {
 				return false;
 		} else if (!k.equals(other.k))
 			return false;
-		if (m == null) {
-			if (other.m != null)
+		if (mac == null) {
+			if (other.mac != null)
 				return false;
-		} else if (!m.equals(other.m))
+		} else if (!mac.equals(other.mac))
 			return false;
 		return true;
 	}

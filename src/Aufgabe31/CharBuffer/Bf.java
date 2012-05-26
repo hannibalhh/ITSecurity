@@ -1,6 +1,8 @@
 package Aufgabe31.CharBuffer;
 
 import java.math.BigInteger;
+
+import CharReader.r;
 import CharReader.Interface.CharReader;
 
 public class Bf {
@@ -9,14 +11,18 @@ public class Bf {
 	Block mac; 
 	long searchedKeys;
 	String foundKey;
-	CharReader clearm;
+	String clearmpath;
 	long lastDurationMS=0;
 	
-	public Bf(int leading0s, Block mac, CharReader clearm ){
+	private Bf(int leading0s, Block mac, String clearmpath ){
 		this.leading0s=leading0s;
 		this.mac=mac;
-		this.clearm=clearm;
+		this.clearmpath = clearmpath;
 		this.foundKey= findKey();
+	}
+	
+	public static Bf create(int leading0s, Block mac,String path){
+		return new Bf(leading0s,mac,path);
 	}
 	
 	public BigInteger amountPossibleKeysWithN0s(){	
@@ -35,8 +41,10 @@ public class Bf {
 		BigInteger maxRounds=amountPossibleKeysAbsolute();
 		System.out.println("max Rounds="+maxRounds);
 		for(BigInteger i=BigInteger.valueOf(0); i.compareTo(maxRounds)<0; i=i.add(BigInteger.valueOf(1))){
-			Message mess=Message.create(this.clearm,i);
-			if(mess.m().equals(mac)){
+			Message mess=Message.create(r.file(this.clearmpath),i);
+			System.out.println("mess.mac: " + mess.mac());
+			System.out.println("mac: " + mac);
+			if(mess.mac().equals(mac)){
 				this.lastDurationMS = System.currentTimeMillis()-start;
 				return Integer.toHexString(i.intValue());			
 			}

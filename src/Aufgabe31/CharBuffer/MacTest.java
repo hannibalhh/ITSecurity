@@ -7,25 +7,26 @@ import CharReader.Interface.CharReader;
 public class MacTest {
 	
 	static final BigInteger key = BigInteger.valueOf(0x123);
+	static final String path = "src/Aufgabe31/kafka";
 //	static final CharReader clearm = r.file("src/Aufgabe31/kafka");
-//	static final char[] clearm = r.fileTocharArray("src/Aufgabe31/short");
-	static final CharReader clearm = r.file("src/Aufgabe31/short");
+//	static final CharReader clearm = r.file("src/Aufgabe31/short");
+	static final CharReader clearm = r.file(path);
 	
 	public static void main(String args[]){
-		easyTest();
-//		bruteForceTest();
+//		easyTest();
+		bruteForceTest();
 	}
 	
 	public static void easyTest(){
 		Message m = Message.create(clearm, key);
 		System.out.println(m.k());
-		System.out.println(m.m());
+		System.out.println(m.mac());
 	}	
 	
 	public static void bruteForceTest(){
 		Message m=Message.create(clearm, key);
 		System.out.println(m);
-		Bf bf=new Bf(15*8,m.m(),clearm);
+		Bf bf= Bf.create(15*8,m.mac(),path);
 		System.out.println("Found HEX-String key: 0x"+bf.foundKey);
 		System.out.println("tested Keys: "+bf.searchedKeys);
 		System.out.println("Duration in ms: "+bf.lastDurationMS);		

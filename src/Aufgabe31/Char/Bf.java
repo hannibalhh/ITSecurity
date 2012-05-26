@@ -35,7 +35,9 @@ public class Bf {
 		System.out.println("max Rounds="+maxRounds);
 		for(BigInteger i=BigInteger.valueOf(0); i.compareTo(maxRounds)<0; i=i.add(BigInteger.valueOf(1))){
 			Message mess=Message.create(this.clearm,i);
-			if(mess.m().equals(mac)){
+			System.out.println("mess.m: " + mess.mac());
+			System.out.println("mac: " + mac);
+			if(mess.mac().equals(mac)){
 				this.lastDurationMS = System.currentTimeMillis()-start;
 				return Integer.toHexString(i.intValue());			
 			}
