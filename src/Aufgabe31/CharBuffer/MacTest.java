@@ -10,29 +10,29 @@ import CharReader.Interface.CharReader;
 public class MacTest {
 	
 	static final BigInteger key = BigInteger.valueOf(0x123);
-	static final String path = "src/Aufgabe31/kafka";
+	static final String path = "src/Aufgabe31/short";
 //	static final CharReader clearm = r.file("src/Aufgabe31/kafka");
 //	static final CharReader clearm = r.file("src/Aufgabe31/short");
 	static final CharReader clearm = r.file(path);
 	
 	public static void main(String args[]){
-//		easyTest();
-		bigKeyTest();
+		easyTest();
+//		bigKeyTest();
 //		bruteForceTest();
 	}
 	
 	public static void easyTest(){
 		Message m = Message.create(clearm, key);
-		System.out.println(m.k());
-		System.out.println(m.mac());
+		System.out.println("key: "+ m.k());
+		System.out.println("mac: " + m.mac().number());
 	}
 	
 	public static void bigKeyTest(){
 		BigPrimeN prime = BigPrimeN.create(32);
 		SmallInteger small = SmallInteger.create(prime.next());
 		Message m = Message.create(clearm, small.next());
-		System.out.println(m.k());
-		System.out.println(m.mac());
+		System.out.println("key: "+ m.k());
+		System.out.println("mac: " + m.mac().number());
 	}	
 	
 	public static void bruteForceTest(){

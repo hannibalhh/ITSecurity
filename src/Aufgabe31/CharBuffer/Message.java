@@ -69,7 +69,7 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message(m=" + mac + ", clearm=" + clearm + ", k=" + k + ")";
+		return "Message(mac=" + mac.number() + ", clearm=" + clearm + ", k=" + k + ")";
 	}
 
 	@Override

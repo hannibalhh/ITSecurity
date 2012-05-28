@@ -100,6 +100,15 @@ public class Block {
 		}
 		return s;
 	}
+	
+	public String number() {
+		String s = "";		
+		for (char myb : b) {
+			s += Integer.valueOf((int)myb);
+		}
+		return s;
+	}
+
 
 	@Override
 	public int hashCode() {
