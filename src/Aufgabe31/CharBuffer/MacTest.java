@@ -1,6 +1,9 @@
 package Aufgabe31.CharBuffer;
 
 import java.math.BigInteger;
+
+import Aufgabe2Diffie.BigPrimeN;
+import Aufgabe2Diffie.SmallInteger;
 import CharReader.r;
 import CharReader.Interface.CharReader;
 
@@ -14,11 +17,20 @@ public class MacTest {
 	
 	public static void main(String args[]){
 //		easyTest();
-		bruteForceTest();
+		bigKeyTest();
+//		bruteForceTest();
 	}
 	
 	public static void easyTest(){
 		Message m = Message.create(clearm, key);
+		System.out.println(m.k());
+		System.out.println(m.mac());
+	}
+	
+	public static void bigKeyTest(){
+		BigPrimeN prime = BigPrimeN.create(32);
+		SmallInteger small = SmallInteger.create(prime.next());
+		Message m = Message.create(clearm, small.next());
 		System.out.println(m.k());
 		System.out.println(m.mac());
 	}	

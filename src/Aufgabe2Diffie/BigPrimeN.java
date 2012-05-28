@@ -23,7 +23,7 @@ public class BigPrimeN {
 		return bitLength;
 	}
 	
-	BigInteger next(){
+	public BigInteger next(){
 		return BigInteger.probablePrime(bitLength, new Random());
 	}
 }

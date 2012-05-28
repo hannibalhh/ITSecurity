@@ -21,7 +21,7 @@ public class Message {
 
 	public static Message create(CharReader clearm, BigInteger k) {
 		List<Block> clearblocks = Block.buildBlocks(clearm);
-		Block filledk = Block.fillKey(k.toString().toCharArray());
+		Block filledk = Block.fillKey(k.toString(16).toCharArray());
 		return new Message(mac(clearblocks, filledk), clearblocks, filledk);
 	}
 	public static Message create(CharReader clearm, String k) {

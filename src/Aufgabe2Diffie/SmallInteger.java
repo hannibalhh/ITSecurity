@@ -20,7 +20,7 @@ public class SmallInteger {
 	}
 
 	// {2,..,n-2}
-	BigInteger next(){
+	public BigInteger next(){
 		return rand(BigInteger.valueOf(2),n.subtract(BigInteger.valueOf(2)));
 	}
 	
