@@ -1,0 +1,128 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation. Alle Rechte vorbehalten.
+
+C:\Users\aaw704>nslookup google.de
+Server:  net_eth3.informatik.haw-hamburg.de
+Address:  141.22.30.66
+
+Nicht autorisierende Antwort:
+Name:    google.de
+Address:  173.194.69.94
+
+
+C:\Users\aaw704>nslookup www.google.de
+Server:  net_eth3.informatik.haw-hamburg.de
+Address:  141.22.30.66
+
+Nicht autorisierende Antwort:
+Name:    www-cctld.l.google.com
+Address:  173.194.69.94
+Aliases:  www.google.de
+
+
+C:\Users\aaw704>nslookup www.heise.de
+Server:  net_eth3.informatik.haw-hamburg.de
+Address:  141.22.30.66
+
+Nicht autorisierende Antwort:
+Name:    www.heise.de
+Addresses:  2a02:2e0:3fe:100::7
+          193.99.144.85
+
+
+C:\Users\aaw704>nslookup bazinga.co.jp
+Server:  net_eth3.informatik.haw-hamburg.de
+Address:  141.22.30.66
+
+*** bazinga.co.jp wurde von net_eth3.informatik.haw-hamburg.de nicht gefunden: N
+on-existent domain.
+
+C:\Users\aaw704>nslookup translate.google.de
+Server:  net_eth3.informatik.haw-hamburg.de
+Address:  141.22.30.66
+
+Nicht autorisierende Antwort:
+Name:    www3.l.google.com
+Addresses:  173.194.69.100
+          173.194.69.101
+          173.194.69.102
+          173.194.69.113
+          173.194.69.138
+          173.194.69.139
+Aliases:  translate.google.de
+          translate.google.com
+
+
+C:\Users\aaw704>nslookup translate.google.de
+Server:  net_eth3.informatik.haw-hamburg.de
+Address:  141.22.30.66
+
+Nicht autorisierende Antwort:
+Name:    www3.l.google.com
+Addresses:  173.194.69.139
+          173.194.69.100
+          173.194.69.101
+          173.194.69.102
+          173.194.69.113
+          173.194.69.138
+Aliases:  translate.google.de
+          translate.google.com
+
+
+C:\Users\aaw704>nslookup translate.google.de
+Server:  net_eth3.informatik.haw-hamburg.de
+Address:  141.22.30.66
+
+Nicht autorisierende Antwort:
+Name:    www3.l.google.com
+Addresses:  173.194.69.113
+          173.194.69.138
+          173.194.69.139
+          173.194.69.100
+          173.194.69.101
+          173.194.69.102
+Aliases:  translate.google.de
+          translate.google.com
+
+
+C:\Users\aaw704>nslookup translate.google.de
+Server:  net_eth3.informatik.haw-hamburg.de
+Address:  141.22.30.66
+
+Nicht autorisierende Antwort:
+Name:    www3.l.google.com
+Addresses:  173.194.69.102
+          173.194.69.113
+          173.194.69.138
+          173.194.69.139
+          173.194.69.100
+          173.194.69.101
+Aliases:  translate.google.de
+          translate.google.com
+
+
+C:\Users\aaw704>nslookup translate.google.de
+Server:  net_eth3.informatik.haw-hamburg.de
+Address:  141.22.30.66
+
+Nicht autorisierende Antwort:
+Name:    www3.l.google.com
+Addresses:  173.194.69.101
+          173.194.69.102
+          173.194.69.113
+          173.194.69.138
+          173.194.69.139
+          173.194.69.100
+Aliases:  translate.google.de
+          translate.google.com
+
+
+C:\Users\aaw704>nslookup 8.8.8.8
+Server:  net_eth3.informatik.haw-hamburg.de
+Address:  141.22.30.66
+
+Name:    google-public-dns-a.google.com
+Address:  8.8.8.8
+
+
+C:\Users\aaw704>

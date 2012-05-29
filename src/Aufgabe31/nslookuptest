@@ -1,0 +1,45 @@
+Sigurds-MacBook:~ hannibal$ nslookup www.google.de
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+www.google.de	canonical name = www-cctld.l.google.com.
+Name:	www-cctld.l.google.com
+Address: 173.194.69.94
+
+Sigurds-MacBook:~ hannibal$ nslookup google.de
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+Name:	google.de
+Address: 173.194.35.151
+Name:	google.de
+Address: 173.194.35.159
+Name:	google.de
+Address: 173.194.35.152
+
+Sigurds-MacBook:~ hannibal$ nslookup www.heise.de
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+Name:	www.heise.de
+Address: 193.99.144.85
+
+Sigurds-MacBook:~ hannibal$ nslookup bazinga.co.jp
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+** server can't find bazinga.co.jp: NXDOMAIN
+
+Sigurds-MacBook:~ hannibal$ nslookup 8.8.8.8
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+Non-authoritative answer:
+8.8.8.8.in-addr.arpa	name = google-public-dns-a.google.com.
+
+Authoritative answers can be found from:
+
+Sigurds-MacBook:~ hannibal$ 

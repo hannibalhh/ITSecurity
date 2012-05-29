@@ -34,7 +34,7 @@ public class Message {
 		List<Block> blocks = new ArrayList<Block>();
 		blocks.add(filledk);
 		blocks.addAll(clearm);
-		System.out.println("Blocks with key: " + blocks);
+//		System.out.println("Blocks with key: " + blocks);
 		Iterator<Block> i = blocks.iterator();
 		Block a = i.next();
 		Block b = null;

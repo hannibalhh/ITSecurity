@@ -1,5 +1,6 @@
 package Aufgabe31.CharBuffer;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -43,14 +44,14 @@ public class Block {
 	}
 	
 	public static Block fillKey(char[] k){
-		if (k.length < blockLength){
+		if (k.length < blockLength){			
 			char[] array = new char[blockLength];
 			for(int i = 0;i < blockLength;i++){
-				if (i < k.length){
-					array[i] = k[i];
+				if (i >= blockLength-k.length){
+					array[i] = k[blockLength-i-1];
 				}
 				else{
-					array[i] = 0;
+					array[i] = '0';
 				}
 			}
 			return create(array);
@@ -94,19 +95,20 @@ public class Block {
 	}
 	
 	public static String print(char[] array) {
-		String s = "";
+		String s = "chars(";
 		for (char b : array) {
 			s += (char) b;
 		}
-		return s;
+		return s + ")";
 	}
 	
 	public String number() {
 		String s = "";		
+		
 		for (char myb : b) {
 			s += Integer.valueOf((int)myb);
 		}
-		return s;
+		return new BigInteger(s).toString(16);
 	}
 
 

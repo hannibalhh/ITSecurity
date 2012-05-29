@@ -42,8 +42,8 @@ public class Bf {
 		System.out.println("max Rounds="+maxRounds);
 		for(BigInteger i=BigInteger.valueOf(0); i.compareTo(maxRounds)<0; i=i.add(BigInteger.valueOf(1))){
 			Message mess=Message.create(r.file(this.clearmpath),i);
-			System.out.println("mess.mac: " + mess.mac());
-			System.out.println("mac: " + mac);
+//			System.out.println("mess.mac: " + mess.mac().number());
+//			System.out.println("mac: " + mac.number());
 			if(mess.mac().equals(mac)){
 				this.lastDurationMS = System.currentTimeMillis()-start;
 				return Integer.toHexString(i.intValue());			
