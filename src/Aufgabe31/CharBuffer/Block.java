@@ -65,6 +65,15 @@ public class Block {
 		}
 	}
 	
+	public int countNullValues(){
+		int i = 0;
+		for (char b: this.value()){
+			if (b == '0')
+				i += 1;
+		}
+		return i;
+	}
+	
 	public static char intToChar(int value) {
 	    return (char)value;
 	}

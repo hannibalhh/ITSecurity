@@ -7,12 +7,12 @@ import CharReader.Interface.CharReader;
 
 public class Bf {
 
-	int leading0s;
-	Block mac; 
-	long searchedKeys;
-	String foundKey;
-	String clearmpath;
-	long lastDurationMS=0;
+	public int leading0s;
+	public Block mac; 
+	public long searchedKeys;
+	public String foundKey;
+	public String clearmpath;
+	public long lastDurationMS=0;
 	
 	private Bf(int leading0s, Block mac, String clearmpath ){
 		this.leading0s=leading0s;
@@ -35,7 +35,8 @@ public class Bf {
 		return biggi.pow((Block.length()*8));
 	}
 	
-	public String findKey(){		
+	public String findKey(){	
+		System.out.println(r.file(this.clearmpath));
 		long start = System.currentTimeMillis();
 		searchedKeys=0;
 		BigInteger maxRounds=amountPossibleKeysAbsolute();

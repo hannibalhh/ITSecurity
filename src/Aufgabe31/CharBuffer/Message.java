@@ -38,14 +38,14 @@ public class Message {
 		Iterator<Block> i = blocks.iterator();
 		Block a = i.next();
 		Block b = null;
-		int rounds = 0;
+//		int rounds = 0;
 		while (i.hasNext()) {
 			b = a;
 			a = i.next();
 			a = a.hash(b);	
-			rounds++;
+//			rounds++;
 		}
-		System.out.println("MAC rounds: " + rounds);
+//		System.out.println("MAC rounds: " + rounds);
 		return a;
 	}
 	

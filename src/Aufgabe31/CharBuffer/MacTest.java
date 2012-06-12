@@ -9,7 +9,7 @@ import CharReader.Interface.CharReader;
 
 public class MacTest {
 	
-	static final BigInteger key = BigInteger.valueOf(0xff235673);
+	static final BigInteger key = BigInteger.valueOf(0x123);
 	static final String path = "src/Aufgabe31/short";
 //	static final CharReader clearm = r.file("src/Aufgabe31/kafka");
 //	static final CharReader clearm = r.file("src/Aufgabe31/short");
