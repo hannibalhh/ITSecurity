@@ -1,0 +1,135 @@
+read Message: UEBERWEISUNG AN MEIKO JENSEN: EUR 100
+clearm: [Block(b=85), Block(b=69), Block(b=66), Block(b=69), Block(b=82), Block(b=87), Block(b=69), Block(b=73), Block(b=83), Block(b=85), Block(b=78), Block(b=71), Block(b=32), Block(b=65), Block(b=78), Block(b=32), Block(b=77), Block(b=69), Block(b=73), Block(b=75), Block(b=79), Block(b=32), Block(b=74), Block(b=69), Block(b=78), Block(b=83), Block(b=69), Block(b=78), Block(b=58), Block(b=32), Block(b=69), Block(b=85), Block(b=82), Block(b=32), Block(b=49), Block(b=48), Block(b=48)]
+reducing: '0'(=48) with foundMac: 229 and getting result: 181
+reducing: '0'(=48) with foundMac: 181 and getting result: 133
+reducing: '1'(=49) with foundMac: 133 and getting result: 84
+reducing: ' '(=32) with foundMac: 84 and getting result: 52
+reducing: 'R'(=82) with foundMac: 52 and getting result: 226
+reducing: 'U'(=85) with foundMac: 226 and getting result: 141
+reducing: 'E'(=69) with foundMac: 141 and getting result: 72
+reducing: ' '(=32) with foundMac: 72 and getting result: 40
+reducing: ':'(=58) with foundMac: 40 and getting result: 238
+reducing: 'N'(=78) with foundMac: 238 and getting result: 160
+reducing: 'E'(=69) with foundMac: 160 and getting result: 91
+reducing: 'S'(=83) with foundMac: 91 and getting result: 8
+reducing: 'N'(=78) with foundMac: 8 and getting result: 186
+reducing: 'E'(=69) with foundMac: 186 and getting result: 117
+reducing: 'J'(=74) with foundMac: 117 and getting result: 43
+reducing: ' '(=32) with foundMac: 43 and getting result: 11
+reducing: 'O'(=79) with foundMac: 11 and getting result: 188
+reducing: 'K'(=75) with foundMac: 188 and getting result: 113
+reducing: 'I'(=73) with foundMac: 113 and getting result: 40
+reducing: 'E'(=69) with foundMac: 40 and getting result: 227
+reducing: 'M'(=77) with foundMac: 227 and getting result: 150
+reducing: ' '(=32) with foundMac: 150 and getting result: 118
+reducing: 'N'(=78) with foundMac: 118 and getting result: 40
+reducing: 'A'(=65) with foundMac: 40 and getting result: 231
+reducing: ' '(=32) with foundMac: 231 and getting result: 199
+reducing: 'G'(=71) with foundMac: 199 and getting result: 128
+reducing: 'N'(=78) with foundMac: 128 and getting result: 50
+reducing: 'U'(=85) with foundMac: 50 and getting result: 221
+reducing: 'S'(=83) with foundMac: 221 and getting result: 138
+reducing: 'I'(=73) with foundMac: 138 and getting result: 65
+reducing: 'E'(=69) with foundMac: 65 and getting result: 252
+reducing: 'W'(=87) with foundMac: 252 and getting result: 165
+reducing: 'R'(=82) with foundMac: 165 and getting result: 83
+reducing: 'E'(=69) with foundMac: 83 and getting result: 14
+reducing: 'B'(=66) with foundMac: 14 and getting result: 204
+reducing: 'E'(=69) with foundMac: 204 and getting result: 135
+reducing: 'U'(=85) with foundMac: 135 and getting result: 50
+mac from key: Block(b=50)
+m: MacCalculator(premac=Block(b=229), mac=Block(b=50), affix=UEBERWEISUNG AN MEIKO JENSEN: EUR 100)
+got Mac from Key: 50
+
+
+=======================================
+
+
+affix: [Block(b=85), Block(b=69), Block(b=66), Block(b=69), Block(b=82), Block(b=87), Block(b=69), Block(b=73), Block(b=83), Block(b=85), Block(b=78), Block(b=71), Block(b=32), Block(b=65), Block(b=78), Block(b=32), Block(b=77), Block(b=69), Block(b=73), Block(b=75), Block(b=79), Block(b=32), Block(b=74), Block(b=69), Block(b=78), Block(b=83), Block(b=69), Block(b=78), Block(b=58), Block(b=32), Block(b=69), Block(b=85), Block(b=82), Block(b=32), Block(b=49), Block(b=48), Block(b=48)]
+hashing: 'U'(=85) with premac:50 and getting result: 135
+hashing: 'E'(=69) with premac:135 and getting result: 204
+hashing: 'B'(=66) with premac:204 and getting result: 14
+hashing: 'E'(=69) with premac:14 and getting result: 83
+hashing: 'R'(=82) with premac:83 and getting result: 165
+hashing: 'W'(=87) with premac:165 and getting result: 252
+hashing: 'E'(=69) with premac:252 and getting result: 65
+hashing: 'I'(=73) with premac:65 and getting result: 138
+hashing: 'S'(=83) with premac:138 and getting result: 221
+hashing: 'U'(=85) with premac:221 and getting result: 50
+hashing: 'N'(=78) with premac:50 and getting result: 128
+hashing: 'G'(=71) with premac:128 and getting result: 199
+hashing: ' '(=32) with premac:199 and getting result: 231
+hashing: 'A'(=65) with premac:231 and getting result: 40
+hashing: 'N'(=78) with premac:40 and getting result: 118
+hashing: ' '(=32) with premac:118 and getting result: 150
+hashing: 'M'(=77) with premac:150 and getting result: 227
+hashing: 'E'(=69) with premac:227 and getting result: 40
+hashing: 'I'(=73) with premac:40 and getting result: 113
+hashing: 'K'(=75) with premac:113 and getting result: 188
+hashing: 'O'(=79) with premac:188 and getting result: 11
+hashing: ' '(=32) with premac:11 and getting result: 43
+hashing: 'J'(=74) with premac:43 and getting result: 117
+hashing: 'E'(=69) with premac:117 and getting result: 186
+hashing: 'N'(=78) with premac:186 and getting result: 8
+hashing: 'S'(=83) with premac:8 and getting result: 91
+hashing: 'E'(=69) with premac:91 and getting result: 160
+hashing: 'N'(=78) with premac:160 and getting result: 238
+hashing: ':'(=58) with premac:238 and getting result: 40
+hashing: ' '(=32) with premac:40 and getting result: 72
+hashing: 'E'(=69) with premac:72 and getting result: 141
+hashing: 'U'(=85) with premac:141 and getting result: 226
+hashing: 'R'(=82) with premac:226 and getting result: 52
+hashing: ' '(=32) with premac:52 and getting result: 84
+hashing: '1'(=49) with premac:84 and getting result: 133
+hashing: '0'(=48) with premac:133 and getting result: 181
+hashing: '0'(=48) with premac:181 and getting result: 229
+m2: MacCalculator(premac=Block(b=50), mac=Block(b=229), affix=UEBERWEISUNG AN MEIKO JENSEN: EUR 100)
+same mac can be repoduced: true
+
+
+=======================================
+
+
+creating own verifiable message: UEBERWEISUNG AN COOKIE MONSTER: EUR 423
+
+affix: [Block(b=85), Block(b=69), Block(b=66), Block(b=69), Block(b=82), Block(b=87), Block(b=69), Block(b=73), Block(b=83), Block(b=85), Block(b=78), Block(b=71), Block(b=32), Block(b=65), Block(b=78), Block(b=32), Block(b=67), Block(b=79), Block(b=79), Block(b=75), Block(b=73), Block(b=69), Block(b=32), Block(b=77), Block(b=79), Block(b=78), Block(b=83), Block(b=84), Block(b=69), Block(b=82), Block(b=58), Block(b=32), Block(b=69), Block(b=85), Block(b=82), Block(b=32), Block(b=52), Block(b=50), Block(b=51)]
+hashing: 'U'(=85) with premac:50 and getting result: 135
+hashing: 'E'(=69) with premac:135 and getting result: 204
+hashing: 'B'(=66) with premac:204 and getting result: 14
+hashing: 'E'(=69) with premac:14 and getting result: 83
+hashing: 'R'(=82) with premac:83 and getting result: 165
+hashing: 'W'(=87) with premac:165 and getting result: 252
+hashing: 'E'(=69) with premac:252 and getting result: 65
+hashing: 'I'(=73) with premac:65 and getting result: 138
+hashing: 'S'(=83) with premac:138 and getting result: 221
+hashing: 'U'(=85) with premac:221 and getting result: 50
+hashing: 'N'(=78) with premac:50 and getting result: 128
+hashing: 'G'(=71) with premac:128 and getting result: 199
+hashing: ' '(=32) with premac:199 and getting result: 231
+hashing: 'A'(=65) with premac:231 and getting result: 40
+hashing: 'N'(=78) with premac:40 and getting result: 118
+hashing: ' '(=32) with premac:118 and getting result: 150
+hashing: 'C'(=67) with premac:150 and getting result: 217
+hashing: 'O'(=79) with premac:217 and getting result: 40
+hashing: 'O'(=79) with premac:40 and getting result: 119
+hashing: 'K'(=75) with premac:119 and getting result: 194
+hashing: 'I'(=73) with premac:194 and getting result: 11
+hashing: 'E'(=69) with premac:11 and getting result: 80
+hashing: ' '(=32) with premac:80 and getting result: 112
+hashing: 'M'(=77) with premac:112 and getting result: 189
+hashing: 'O'(=79) with premac:189 and getting result: 12
+hashing: 'N'(=78) with premac:12 and getting result: 90
+hashing: 'S'(=83) with premac:90 and getting result: 173
+hashing: 'T'(=84) with premac:173 and getting result: 1
+hashing: 'E'(=69) with premac:1 and getting result: 70
+hashing: 'R'(=82) with premac:70 and getting result: 152
+hashing: ':'(=58) with premac:152 and getting result: 210
+hashing: ' '(=32) with premac:210 and getting result: 242
+hashing: 'E'(=69) with premac:242 and getting result: 55
+hashing: 'U'(=85) with premac:55 and getting result: 140
+hashing: 'R'(=82) with premac:140 and getting result: 222
+hashing: ' '(=32) with premac:222 and getting result: 254
+hashing: '4'(=52) with premac:254 and getting result: 50
+hashing: '2'(=50) with premac:50 and getting result: 100
+hashing: '3'(=51) with premac:100 and getting result: 151
+m3: MacCalculator(premac=Block(b=50), mac=Block(b=151), affix=UEBERWEISUNG AN COOKIE MONSTER: EUR 423)
