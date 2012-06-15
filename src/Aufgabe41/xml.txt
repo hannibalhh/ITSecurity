@@ -1,0 +1,30 @@
+<Prüfungsergebnis>
+
+  <EingetragenVon ID="auth">
+    <Kürzel>JNSE</Kürzel>
+  </EingetragenVon>
+
+  <Klausurergebnis ID="ergebnis">
+    <Matrikelnummer>1234567</Matrikelnummer>
+    <Punktzahl>67</Punktzahl>
+  </Klausurergebnis>
+
+  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:SignedInfo>
+      <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+      <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <ds:Reference URI="#auth">
+        <ds:Transforms/>
+        <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <ds:DigestValue>Rpw7j1pAFv3Y5Qed84ScEKvLwvo=</ds:DigestValue>
+      </ds:Reference>
+      <ds:Reference URI="#ergebnis">
+        <ds:Transforms/>
+        <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <ds:DigestValue>huJs3FG28TZ33Asq45kErunjhFB=</ds:DigestValue>
+      </ds:Reference>
+    </ds:SignedInfo>
+    <ds:SignatureValue>lehlXLyKRi5PnrlWq267SEdhbKO=</ds:SignatureValue>
+  </ds:Signature>
+
+</Prüfungsergebnis>
