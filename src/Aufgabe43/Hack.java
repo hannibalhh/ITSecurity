@@ -5,7 +5,7 @@ import Aufgabe31.CharBuffer.Block;
 
 public class Hack {
 
-	static final String path = "src/Aufgabe43/text";
+	static final String path = "home/nora/itsec/src/Aufgabe43/text";
 	public static void main(String args[]){
 		Block mac = Block.fillKey("229".toCharArray());
 		System.out.println(mac);
@@ -15,4 +15,7 @@ public class Hack {
 		System.out.println("tested Keys: "+bf.searchedKeys);
 		System.out.println("Duration in ms: "+bf.lastDurationMS);
 	}
+	
+	
+	
 }

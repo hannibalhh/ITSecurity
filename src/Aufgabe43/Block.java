@@ -7,13 +7,15 @@ import java.util.List;
 
 public class Block {
 
+	
+	
 	private final char[] b;
 	private static int blockLength = 1; // char
-	
+
 	private Block(char[] b){
 		this.b = b;
 	}
-	
+
 	public static Block create(char[] b){
 		if (b.length != blockLength){
 			System.err.println("Block has wrong size, it must be a length of " + blockLength);
@@ -21,7 +23,7 @@ public class Block {
 		}
 		return new Block(b);
 	}
-	
+
 	public static List<Block> buildBlocks(char[] blocks){
 		List<Block> l = new ArrayList<Block>();
 		char[] temp = new char[blockLength];
@@ -40,7 +42,7 @@ public class Block {
 		}
 		return l;
 	}
-	
+
 	public static Block fill(char[] k){
 		if (k.length < blockLength){			
 			char[] array = new char[blockLength];
@@ -62,7 +64,7 @@ public class Block {
 			return null;
 		}
 	}
-	
+
 	public int countNullValues(){
 		int i = 0;
 		for (char b: this.value()){
@@ -71,40 +73,62 @@ public class Block {
 		}
 		return i;
 	}
-	
+
 	public static char intToChar(int value) {
-	    return (char)value;
+		return (char)value;
 	}
-	
+
 	public Block hash(Block b){
 		return create(hash(this.value(),b.value()));
 	}
+
+	private char[] hash(char[] premac, char[] ch){
+		char[] r = new char[premac.length];
 	
-	private char[] hash(char[] a, char[] b){
-		char[] r = new char[a.length];
-		for (int i=0;i<a.length;i++){
-			r[i] = intToChar((a[i] + b[i]) % 256);
+		
+		for (int i=0;i<premac.length;i++){
+			int premacInt=premac[i];
+			int charInt=ch[i];
+			int ic= premacInt+charInt;
+			int result=ic %	256;
+			if(Oscar.DEBUG)System.out.println("hashing: \'"+(char)charInt+  "\'(="+ charInt +") with premac:"+premacInt+" and getting result: "+ result);
+			r[0]=(char)result;
+
 		}
 		return r;
 	}
-	
+
 	public Block reverseHash(Block b){
 		return create(reverseHash(this.value(),b.value()));
 	}
-	
-	private char[] reverseHash(char[] a, char[] b){
-		char[] r = new char[a.length];
-		for (int i=a.length-1;i>=0;i--){
-			r[i] = intToChar((a[i] - b[i]) % 256);
+
+	private char[] reverseHash(char[] foundMac, char[] hint){
+		char[] newMac = new char[foundMac.length];
+
+		//getting loop out for  readability ;)
+		if(foundMac.length==1 && hint.length==1){
+			
+			int a=foundMac[0];
+			int b=hint[0];
+			int c=a-b;
+			int result=c % 256;
+			if(result<0)result=256+result;
+			
+			if(Oscar.DEBUG)System.out.println("reducing: \'"+(char)b+  "\'(="+ b +") with foundMac: "+a+" and getting result: "+ result);
+			newMac[0]=(char)result;
+		}else{
+			for (int i=foundMac.length-1;i>=0;i--){
+				newMac[i] = intToChar((foundMac[i] - hint[i]) % 256);
+
+			}
 		}
-		System.out.println(r);
-		return r;
+		return newMac;
 	}
-	
+
 	public char[] value(){
 		return b;
 	}
-	
+
 	public static int length(){
 		return blockLength;
 	}
@@ -113,18 +137,18 @@ public class Block {
 	public String toString() {
 		return "Block(b=" + number() + ")";
 	}
-	
-//	public static String print(char[] array) {
-//		String s = "chars(";
-//		for (char b : array) {
-//			s += (char) b;
-//		}
-//		return s + ")";
-//	}
-	
+
+	//	public static String print(char[] array) {
+	//		String s = "chars(";
+	//		for (char b : array) {
+	//			s += (char) b;
+	//		}
+	//		return s + ")";
+	//	}
+
 	public String number() {
 		String s = "";		
-		
+
 		for (char myb : b) {
 			s += Integer.valueOf((int)myb);
 		}
@@ -153,4 +177,6 @@ public class Block {
 			return false;
 		return true;
 	}	
+	
+
 }

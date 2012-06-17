@@ -2,26 +2,27 @@ package Aufgabe43;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 public class MacCalculator {
 	private final Block premac;
 	private final Block mac;
 	private final String affix;
-
+	private final int macAsInt; 
+	
 	private MacCalculator(Block premac,Block mac,String affix) {
 		this.mac = mac;
 		this.premac = premac;
 		this.affix = affix;
+		this.macAsInt=Integer.parseInt(mac.number());
 	}
+
 
 	public static MacCalculator create(int premac, String affix) {
 		List<Block> affixblocks = Block.buildBlocks(affix.toCharArray());
 		char[] premacList = new char[1];
 		premacList[0] = (char)premac;
 		Block filledpremac = Block.fill(premacList);
-		System.out.println("filledpremac:" + filledpremac);
 		return new MacCalculator(filledpremac,mac(affixblocks, filledpremac), affix);
 	}
 	
@@ -30,13 +31,26 @@ public class MacCalculator {
 		char[] premacList = new char[1];
 		premacList[0] = (char)premac;
 		Block filledpremac = Block.fill(premacList);
-		System.out.println("filledpremac:" + filledpremac);
-		return new MacCalculator(filledpremac,reverseMac(clearmblocks, filledpremac), clearm);
+		Block macFromKey=reverseMac(clearmblocks, filledpremac);
+		if(Oscar.DEBUG)System.out.println("mac from key: "+macFromKey);
+		
+		return new MacCalculator(filledpremac,macFromKey, clearm);
 	}
 
 	public static Block mac(List<Block> affix, Block premac) {
+		
+		//liste mit der Nachrricht wird rückwärts ausgewertet
+		//kopiert wegen java mutable kram...
 		List<Block> blocks = new ArrayList<Block>();
-		blocks.add(premac);
+		blocks.addAll(affix);
+		if(Oscar.DEBUG)System.out.println("affix: "+blocks);
+		Block b = premac;
+		for(int j=0; j<blocks.size(); j++){
+			b=b.hash(blocks.get(j));
+		}
+		return b;
+		
+		/*	blocks.add(premac);
 		blocks.addAll(affix);
 		Iterator<Block> i = blocks.iterator();
 		Block a = i.next();
@@ -46,23 +60,34 @@ public class MacCalculator {
 			a = i.next();
 			a = a.hash(b);	
 		}
-		return a;
+		return a;*/
 	}
 	
 	public static Block reverseMac(List<Block> clearm, Block premac) {
+	
+		//liste mit der Nachrricht wird rückwärts ausgewertet
+		//kopiert wegen java mutable kram...
 		List<Block> blocks = new ArrayList<Block>();
-		blocks.add(premac);
 		blocks.addAll(clearm);
+		if(Oscar.DEBUG)System.out.println("clearm: "+blocks);
+		//blocks.addAll(clearm);
+		
 		Collections.reverse(blocks);
-		Iterator<Block> i = blocks.iterator();
-		Block a = i.next();
-		Block b = null;
-		while (i.hasNext()) {
-			b = a;
-			a = i.next();
-			a = a.reverseHash(b);	
+		//Iterator<Block> i = blocks.iterator();
+		//Block a = i.next();
+		Block b = premac;
+		for(int j=0; j<blocks.size(); j++){
+			b=b.reverseHash(blocks.get(j));
 		}
-		return a;
+		
+/*		while (i.hasNext()) {
+			Block temp=a;
+			a = i.next();
+			b = a.reverseHash(temp);
+			
+		//	a = a.reverseHash(b);	
+		}*/
+		return b;
 	}
 	
 	public String affix() {
@@ -87,5 +112,7 @@ public class MacCalculator {
 				+ affix + ")";
 	}
 
-
+	public int getMacAsInt(){
+		return macAsInt;
+	}
 }
