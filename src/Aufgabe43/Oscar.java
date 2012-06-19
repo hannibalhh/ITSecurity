@@ -32,14 +32,14 @@ public class Oscar {
 		System.out.println("m: " + m);		
 		System.out.println("got Mac from Key: "+m.getMacAsInt());
 
-		System.out.println("\n\n=======================================\n\n");
+		System.out.println("\n=======================================\n");
 		
 		
 		MacCalculator m2 = MacCalculator.create(m.getMacAsInt(),oldMessage);
 		System.out.println("m2: " + m2);	
 		System.out.println("same mac can be repoduced: "+ new Integer(oldMac).equals(new Integer(m2.getMacAsInt())) );
 		
-		System.out.println("\n\n=======================================\n\n");
+		System.out.println("\n=======================================\n");
 
 		
 		System.out.println("creating own verifiable message: "+newMessage+"\n");

@@ -73,20 +73,11 @@ public class MacCalculator {
 		//blocks.addAll(clearm);
 		
 		Collections.reverse(blocks);
-		//Iterator<Block> i = blocks.iterator();
-		//Block a = i.next();
 		Block b = premac;
 		for(int j=0; j<blocks.size(); j++){
 			b=b.reverseHash(blocks.get(j));
 		}
-		
-/*		while (i.hasNext()) {
-			Block temp=a;
-			a = i.next();
-			b = a.reverseHash(temp);
-			
-		//	a = a.reverseHash(b);	
-		}*/
+
 		return b;
 	}
 	

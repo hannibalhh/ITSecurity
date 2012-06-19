@@ -117,11 +117,10 @@ public class Block {
 			if(Oscar.DEBUG)System.out.println("reducing: \'"+(char)b+  "\'(="+ b +") with foundMac: "+a+" and getting result: "+ result);
 			newMac[0]=(char)result;
 		}else{
-			for (int i=foundMac.length-1;i>=0;i--){
-				newMac[i] = intToChar((foundMac[i] - hint[i]) % 256);
-
+			System.err.println("only works with block size 1!!!");
+			return foundMac;
 			}
-		}
+		
 		return newMac;
 	}
 
